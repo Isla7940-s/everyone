@@ -1,0 +1,39 @@
+# deps & build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# secrets & local config
+.env
+.env.local
+.env.*.local
+
+# runtime data (SQLite, rendered images, run artifacts)
+data/
+# 隔离实例（smoke / stress / demo / UI 验收）连同各自的沙箱，都跟着 DATA_DIR 生成
+data-*/
+out/
+*.log
+
+# per-person runtime artifacts (demo memory/skills ARE committed)
+workspaces/*/tasks/
+workspaces/*/outbox/
+workspaces/*/repo/
+# demo members' repos ARE committed — they are demo assets
+# (star-utils code-task scene, report-alert repo-answer scene)
+!workspaces/xiaoming/repo/
+!workspaces/xiaohong/repo/
+!workspaces/laowang/repo/
+workspaces/*/task-brief.md
+# runtime-planted skill copies (source of truth lives in templates/agent-skills/)
+workspaces/*/feishu-cards.md
+# real-user workspaces (auto-registered at runtime) — never commit real data (PRD §9)
+workspaces/u_*/
+# agent-mode day sandboxes (session briefs / notes / delivered artifacts)
+workspaces/_agent/
+
+# memory engine local storage
+.memory-tencentdb/
+
+# os
+.DS_Store

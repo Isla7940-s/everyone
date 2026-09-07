@@ -1,0 +1,33 @@
+{
+  "name": "everyone",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Everyone —— 每个人的分身，替每个人做事。装进飞书群里的个人分身：帮你记、替你做、帮你审、帮你收、帮你答。",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @everyone/server dev",
+    "dev:admin": "pnpm --filter @everyone/admin dev",
+    "build": "pnpm -r build",
+    "smoke": "pnpm --filter @everyone/server smoke",
+    "smoke:live": "pnpm --filter @everyone/server smoke:live",
+    "smoke:collab": "pnpm --filter @everyone/server smoke:collab",
+    "stress": "pnpm --filter @everyone/server stress",
+    "eval:intent": "pnpm --filter @everyone/server eval:intent",
+    "verify": "pnpm typecheck && pnpm smoke && pnpm smoke:collab && pnpm eval:intent && pnpm stress",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "packageManager": "pnpm@10.34.5",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "@resvg/resvg-js",
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@everyone/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "start": "tsx src/index.ts",
+    "smoke": "tsx src/smoke/smoke.ts",
+    "smoke:live": "tsx src/smoke/smoke-live.ts",
+    "smoke:collab": "tsx src/smoke/smoke-collab.ts",
+    "verify:codex-help": "tsx src/smoke/verify-codex-help.ts",
+    "stress": "tsx src/smoke/stress.ts",
+    "eval:intent": "tsx src/smoke/eval-intent.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@everyone/shared": "workspace:*",
+    "@hono/node-server": "^1.13.7",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tencentdb-agent-memory/memory-sdk-ts": "^1.0.0",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^16.4.7",
+    "hono": "^4.6.14",
+    "openai": "^4.77.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.0"
+  }
+}

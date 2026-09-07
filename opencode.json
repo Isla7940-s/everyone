@@ -1,0 +1,53 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "gateway/kimi-k3",
+  "permission": {
+    "read": "allow",
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow",
+    "external_directory": "allow"
+  },
+  "tools": {
+    "task": false
+  },
+  "mcp": {
+    "feishu": {
+      "type": "remote",
+      "url": "{env:EVERYONE_MCP_URL}",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:EVERYONE_AGENT_TOKEN}"
+      }
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    }
+  },
+  "provider": {
+    "gateway": {
+      "name": "Everyone Gateway",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "{env:OPENAI_BASE_URL}",
+        "apiKey": "{env:OPENAI_API_KEY}"
+      },
+      "models": {
+        "kimi-k3": {
+          "name": "kimi-k3",
+          "limit": { "context": 1000000, "output": 16384 }
+        },
+        "gpt-5.4": {
+          "name": "gpt-5.4",
+          "limit": { "context": 272000, "output": 16384 }
+        },
+        "deepseek-v4-flash": {
+          "name": "deepseek-v4-flash",
+          "limit": { "context": 1000000, "output": 16384 }
+        }
+      }
+    }
+  }
+}
